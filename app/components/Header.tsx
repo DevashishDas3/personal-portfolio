@@ -28,7 +28,7 @@ export default function Header() {
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
           <Link href="/" className="text-3xl md:text-4xl font-bold tracking-tighter">
-            PORTFOLIO*
+            Devashish Das
           </Link>
           <div className="hidden md:flex space-x-8">
             {links.map(({ href, label }) => (

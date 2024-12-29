@@ -1,101 +1,149 @@
-import Image from "next/image";
+import Image from 'next/image'
+import Link from 'next/link'
+import { Code2, Palette, Globe2, Database, Cpu, Layout, GitBranch, Terminal, Figma, Cloud } from 'lucide-react'
+
+const skills = [
+  { name: 'Frontend Development', icon: Layout, description: 'Building responsive web interfaces' },
+  { name: 'Backend Development', icon: Database, description: 'Creating robust server solutions' },
+  { name: 'UI/UX Design', icon: Palette, description: 'Designing user experiences' },
+  { name: 'DevOps', icon: Cloud, description: 'Managing deployment pipelines' },
+  { name: 'Version Control', icon: GitBranch, description: 'Git workflow management' },
+  { name: 'System Architecture', icon: Cpu, description: 'Designing scalable systems' },
+  { name: 'Web Performance', icon: Globe2, description: 'Optimizing load times' },
+  { name: 'Command Line', icon: Terminal, description: 'Shell scripting & automation' },
+  { name: 'Clean Code', icon: Code2, description: 'Writing maintainable code' },
+  { name: 'Design Tools', icon: Figma, description: 'Prototyping & wireframing' },
+]
+
+const experiences = [
+  {
+    title: 'Senior Developer',
+    company: 'Tech Corp',
+    period: '2022 - Present',
+    description: 'Leading development of cloud-native applications and mentoring junior developers.',
+    image: '/placeholder.svg'
+  },
+  {
+    title: 'Full Stack Developer',
+    company: 'Digital Agency',
+    period: '2020 - 2022',
+    description: 'Built and maintained multiple client projects using modern web technologies.',
+    image: '/placeholder.svg'
+  },
+  {
+    title: 'Frontend Developer',
+    company: 'Startup Inc',
+    period: '2018 - 2020',
+    description: 'Developed responsive web applications and improved user experience.',
+    image: '/placeholder.svg'
+  },
+]
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <div className="pt-24">
+      <section className="container mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6">
+              Hey! My Name&apos;s <span className="text-[#96c5b4]">Dev</span>, And I&apos;m a <span className="text-[#96c5b4]">Dev</span>eloper.
+            </h1>
+            <Link
+              href="/projects"
+              className="inline-block bg-[#96c5b4] text-white px-8 py-3 text-sm tracking-wide hover:bg-[#7ab19a] transition-colors"
+            >
+              VIEW PROJECTS
+            </Link>
+          </div>
+          <div className="aspect-square relative">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/placeholder.svg"
+              alt="Creative Work"
+              fill
+              className="object-cover"
+              priority
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+      
+      <section className="mt-24 py-24 bg-[#96c5b4] text-white">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-12 text-center">
+            FEATURED WORK
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[1, 2, 3].map((item) => (
+              <div key={item} className="group cursor-pointer">
+                <div className="aspect-[4/5] relative mb-4 overflow-hidden">
+                  <Image
+                    src="/placeholder.svg"
+                    alt={`Project ${item}`}
+                    fill
+                    className="object-cover transition-transform group-hover:scale-105"
+                  />
+                </div>
+                <h3 className="text-lg font-medium mb-2">Project Title {item}</h3>
+                <p className="text-sm text-white/70">Web Development • 2024</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="py-24">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-12 text-center">
+            EXPERIENCE
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {experiences.map((exp, index) => (
+              <div 
+                key={index} 
+                className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+              >
+                <div className="w-16 h-16 relative mb-6">
+                  <Image
+                    src={exp.image}
+                    alt={exp.company}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <h3 className="text-xl font-bold mb-2">{exp.title}</h3>
+                <p className="text-[#96c5b4] font-medium mb-1">{exp.company}</p>
+                <p className="text-sm text-black/50 mb-4">{exp.period}</p>
+                <p className="text-black/70">{exp.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="pt-24 pb-12 bg-black">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-12 text-center text-white">
+            SKILLS
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+            {skills.map((skill, index) => (
+              <div 
+                key={index}
+                className="group text-center"
+              >
+                <div className="mb-4 flex justify-center">
+                  <div className="w-16 h-16 rounded-full bg-[#96c5b4] flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <skill.icon size={32} className="text-white" />
+                  </div>
+                </div>
+                <h3 className="text-white font-medium mb-2">{skill.name}</h3>
+                <p className="text-white/60 text-sm">{skill.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
-  );
+  )
 }
+
+
