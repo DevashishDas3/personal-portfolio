@@ -19,7 +19,7 @@ const mediaItems: MediaItem[] = [
     id: 1,
     title: 'Inception',
     type: 'Movie',
-    rating: 5,
+    rating: -1,
     review: 'Mind-bending thriller that keeps you guessing until the end.',
     image: 'https://placehold.co/600x400'
   },
@@ -71,7 +71,7 @@ export default function Media() {
   return (
     <div className="container mx-auto px-6 pt-24">
       <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-12">
-        MEDIA REVIEWS
+        REVIEWING/DISCUSSING STUFF
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {mediaItems.map((item) => (
@@ -93,11 +93,13 @@ export default function Media() {
               <p className="text-sm text-black/70 mb-3">{item.type}</p>
               <div className="flex gap-1">
                 {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    size={16}
-                    className={i < item.rating ? 'fill-[#96c5b4]' : 'fill-[#96c5b4]/20'}
-                  />
+                  i < item.rating && item.rating !== -1 ? (
+                    <Star
+                      key={i}
+                      size={20}
+                      className="fill-[#96c5b4]"
+                    />
+                  ) : null
                 ))}
               </div>
             </div>
@@ -141,11 +143,13 @@ export default function Media() {
               <p className="text-sm text-black/70 mb-4">{selectedItem.type}</p>
               <div className="flex gap-1 mb-4">
                 {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    size={20}
-                    className={i < selectedItem.rating ? 'fill-[#96c5b4]' : 'fill-[#96c5b4]/20'}
-                  />
+                  i < selectedItem.rating && selectedItem.rating !== -1 ? (
+                    <Star
+                      key={i}
+                      size={20}
+                      className="fill-[#96c5b4]"
+                    />
+                  ) : null
                 ))}
               </div>
               <p className="text-black/80 leading-relaxed">{selectedItem.review}</p>

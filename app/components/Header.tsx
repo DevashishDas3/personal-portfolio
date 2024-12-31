@@ -9,8 +9,7 @@ const links = [
   { href: '/', label: 'HOME' },
   { href: '/about', label: 'ABOUT' },
   { href: '/projects', label: 'PROJECTS' },
-  { href: '/media', label: 'MEDIA' },
-  { href: '/contact', label: 'CONTACT' },
+  { href: '/stuff', label: 'STUFF' },
 ]
 
 export default function Header() {

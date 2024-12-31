@@ -1,6 +1,8 @@
+'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Code2, Palette, Globe2, Database, Cpu, Layout, GitBranch, Terminal, Figma, Cloud } from 'lucide-react'
+import { Code2, Palette, Globe2, Database, Cpu, Layout, GitBranch, Terminal, Figma, Cloud, ChevronDown } from 'lucide-react'
+import { useRef } from 'react'
 
 const skills = [
   { name: 'Frontend Development', icon: Layout, description: 'Building responsive web interfaces' },
@@ -40,13 +42,17 @@ const experiences = [
 ]
 
 export default function Home() {
+  const featuredWorkRef = useRef<HTMLElement>(null)
+  const scrollToFeaturedWork = () => {
+    featuredWorkRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }
   return (
     <div className="pt-24">
       <section className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6">
-              Hey! My Name&apos;s <span className="text-[#96c5b4]">Dev</span>, And I&apos;m a <span className="text-[#96c5b4]">Dev</span>eloper.
+              Hey! My name&apos;s <span className="text-[#96c5b4]">Dev</span>, and I&apos;m a <span className="text-[#96c5b4]">Dev</span>eloper.
             </h1>
             <Link
               href="/projects"
@@ -57,7 +63,7 @@ export default function Home() {
           </div>
           <div className="aspect-square relative">
             <Image
-              src="/placeholder.svg"
+              src="/Untitled-2024-12-30-0209.png"
               alt="Creative Work"
               fill
               className="object-cover"
@@ -65,9 +71,17 @@ export default function Home() {
             />
           </div>
         </div>
+        <div className="mt-12 text-center">
+          <p className="text-md mb-2">
+            As Seen on My <a href="/path-to-your-resume.pdf" className="text-[#96c5b4] hover:underline" target="_blank" rel="noopener noreferrer">Resume</a>
+          </p>
+          <button onClick={scrollToFeaturedWork} className="animate-bounce">
+            <ChevronDown className="w-6 h-6 text-[#96c5b4]" />
+          </button>
+        </div>
       </section>
       
-      <section className="mt-24 py-24 bg-[#96c5b4] text-white">
+      <section ref={featuredWorkRef} className="mt-24 py-24 bg-[#96c5b4] text-white">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-bold tracking-tighter mb-12 text-center">
             FEATURED WORK
