@@ -21,7 +21,7 @@ export default function About() {
           transition={{ delay: 0.2, duration: 0.5 }}
         >
           <Image
-            src="/placeholder.svg?height=300&width=300"
+            src="/headshot.jpg?height=300&width=300"
             alt="Your Name"
             width={300}
             height={300}
